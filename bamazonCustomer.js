@@ -13,26 +13,44 @@ var connection = mysql.createConnection({
     database: "bamazon_DB"
 });
 
-connection.connect(function (err) {
+connection.connect(function (err, res) {
     if (err) throw err;
-    console.log("connected as id " + connection.threadId);
+    var table = new Table({
+        head: ["Item_ID", "Product", "Price"]
+      , colWidths: [100, 200, 100]
+    });
+     
+    // Display the table within CLI
+   for (var i=0; i < res.length; i++) {
+        table.push([res[i].products.item_id, res[i].products.product_name, res[i].products.price]);
 
-
-    shop();
-});
+        console.log(table.toString()) 
+     };
+     shop();
+    });
 
 function shop() {
-    inquirer.prompt({
-        type:"confirm",
-        name:"continue",
-        message:"Hi, how may I help you?"
-    })
+    inquirer.prompt([{
+        type:"continue",
+        name:"Item ID",
+        message:"Hi, what item are you looking to purchase today?"
+    },
+    {
+        type:"input",
+        name:"Quantity",
+        message:"How many would you like to purchase?"
+    }
+])
     .then(response => {
         if (response.continue) {
-            console.log("Let me  verify our inventory");
+            console.log("Let me verify our inventory");
             showInventory();
         } else {
             endTransaction();
         }
     });
+}
+
+function showInventory() {
+
 }
