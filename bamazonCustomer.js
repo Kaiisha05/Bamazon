@@ -14,7 +14,7 @@ var connection = mysql.createConnection({
 });
 
 connection.connect(function (err, res) {
-    if (err) throw err;
+    // if (err) throw err;
     var table = new Table({
         head: ["Item_ID", "Product", "Price"]
       , colWidths: [100, 200, 100]
