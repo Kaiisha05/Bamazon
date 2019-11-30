@@ -14,15 +14,15 @@ CREATE TABLE products (
 );
 
 INSERT INTO products (product_name, dept_name, price, quantity)
-VALUES ("8ft tree", "Christmas", 75.00, 1000),
-("pumpkin", "Halloween", 20, 1000),
-("stuffed turkey","Thanksgiving", 15, 500),
-("shamrocks", "St.Patricks", 5, 100),
-("candy hearts", "Valentine's", 10, 1000),
-("sparklers", "Independence Day", 5, 1000),
-("streamers", "NYE", 5, 100),
-("wreath", "All-Year", 35, 1000),
-("bunny", "Easter", 40, 500),
+VALUES ("stuffed turkey", "Thanksgivng", 25, 1000),
+("fall decor", "Thanksgiving", 45, 1000),
+("placemats","Thanksgiving", 15, 500),
+("streamers", "NYE", 15, 100),
+("balloons", "NYE", 2, 1000),
+("sparklers", "NYE", 5, 1000),
+("snowman", "Christmas", 25, 100),
+("wreath", "Christmas", 35, 1000),
+("8ft tree", "Christmas", 70, 500),
 ("lights", "Christmas", 15, 1000);
 
 SELECT * FROM products;
